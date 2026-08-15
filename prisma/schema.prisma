@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model WebsiteConfig {
+  id             String  @id @default(auto()) @map("_id") @db.ObjectId
+  heroTitle      String
+  heroSubtitle   String
+  heroImage      String?
+  whatsappNumber String
+  address        String
+  email          String
+  businessHours  String
+  instagramUrl   String?
+  facebookUrl    String?
+  googleMapsUrl  String?
+}
+
+model Category {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  image    String?
+  products Product[]
+}
+
+model Product {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  categoryId   String   @db.ObjectId
+  category     Category @relation(fields: [categoryId], references: [id])
+  name         String
+  description  String
+  price        Float
+  weight       String
+  image        String?
+  isAvailable  Boolean  @default(true)
+  isVeg        Boolean  @default(true)
+  isEggless    Boolean  @default(true)
+  isBestseller Boolean  @default(false)
+  badge        String?
+}
+
+model Offer {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  price     Float
+  startDate DateTime
+  endDate   DateTime
+  isActive  Boolean  @default(true)
+}
+
+model Review {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  rating  Int
+  comment String
+}
+
+model GalleryImage {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  imageUrl String
+  caption  String?
+}
+
+model Order {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  name     String
+  phone    String
+  product  String
+  quantity Int
+  status   String @default("Pending")
+}
+
+model AdminUser {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  email    String @unique
+  password String
+}
