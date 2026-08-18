@@ -23,7 +23,7 @@ export default function Location() {
                 <div className="w-12 h-12 rounded-xl bg-pink-100 flex items-center justify-center text-xl shrink-0">📍</div>
                 <div>
                   <b className="block font-bold text-gray-900 text-lg">Address</b>
-                  <span className="text-gray-600">Shop 12, Bakery Lane, Connaught Place, New Delhi</span>
+                  <span className="text-gray-600">Delhi Dwarka Sec 23 Pochanpur Village, 110077</span>
                 </div>
               </li>
               <li className="flex gap-4">

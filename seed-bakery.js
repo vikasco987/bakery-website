@@ -2,38 +2,38 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 const categoriesData = [
-  { name: "Signature Cakes", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Artisan Breads", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Pastries & Cupcakes", image: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Cookies & Biscuits", image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Savoury Bakes", image: "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+  { name: "Birthday Cakes", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Designer Cakes", image: "https://images.unsplash.com/photo-1535141192574-5d4897c12636?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Anniversary Cakes", image: "https://images.unsplash.com/photo-1621303837174-89787a7d4729?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Dry Cakes & Tea Cakes", image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Pastries & Cupcakes", image: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
 ];
 
 const productsData = [
-  // Signature Cakes
-  { name: "Belgian Chocolate Truffle Cake", desc: "Rich and dense chocolate cake layered with dark Belgian chocolate ganache.", price: 899, weight: "500g", category: "Signature Cakes", isVeg: true, isEggless: true, isBestseller: true, badge: "Chef's Special", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Red Velvet Cream Cheese Cake", desc: "Classic red velvet sponge with layers of authentic cream cheese frosting.", price: 950, weight: "500g", category: "Signature Cakes", isVeg: true, isEggless: false, isBestseller: true, badge: "Bestseller", image: "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Fresh Fruit Gateau", desc: "Vanilla sponge layered with fresh seasonal fruits and light whipped cream.", price: 799, weight: "500g", category: "Signature Cakes", isVeg: true, isEggless: true, isBestseller: false, badge: null, image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Black Forest Classic", desc: "Traditional German chocolate cake with cherry filling and whipped cream.", price: 650, weight: "500g", category: "Signature Cakes", isVeg: true, isEggless: true, isBestseller: false, badge: null, image: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  // Birthday Cakes
+  { name: "Belgian Chocolate Truffle Cake", desc: "Rich and dense chocolate cake layered with dark Belgian chocolate ganache.", price: 899, weight: "500g", category: "Birthday Cakes", isVeg: true, isEggless: true, isBestseller: true, badge: "Chef's Special", image: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Black Forest Classic", desc: "Traditional German chocolate cake with cherry filling and whipped cream.", price: 650, weight: "500g", category: "Birthday Cakes", isVeg: true, isEggless: true, isBestseller: false, badge: null, image: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Fresh Fruit Gateau", desc: "Vanilla sponge layered with fresh seasonal fruits and light whipped cream.", price: 799, weight: "500g", category: "Birthday Cakes", isVeg: true, isEggless: true, isBestseller: false, badge: null, image: "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Butterscotch Crunch Cake", desc: "Vanilla sponge with butterscotch chunks and caramel glaze.", price: 600, weight: "500g", category: "Birthday Cakes", isVeg: true, isEggless: true, isBestseller: true, badge: "Bestseller", image: "https://images.unsplash.com/photo-1542826438-bd32f43d626f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
   
-  // Artisan Breads
-  { name: "Sourdough Boule", desc: "Naturally leavened artisan sourdough with a crusty exterior and chewy crumb.", price: 250, weight: "400g", category: "Artisan Breads", isVeg: true, isEggless: true, isBestseller: true, badge: "Organic", image: "https://images.unsplash.com/photo-1585478259715-876a6a81fa08?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "French Baguette", desc: "Classic long and crusty French loaf, perfect for sandwiches and bruschetta.", price: 120, weight: "300g", category: "Artisan Breads", isVeg: true, isEggless: true, isBestseller: false, badge: null, image: "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Multigrain Healthy Loaf", desc: "Packed with sunflower seeds, flaxseeds, and oats for a healthy start.", price: 180, weight: "400g", category: "Artisan Breads", isVeg: true, isEggless: true, isBestseller: true, badge: "Healthy", image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  // Designer Cakes
+  { name: "Fondant Theme Cake (Kids)", desc: "Customized cartoon theme cake with colorful fondant.", price: 1500, weight: "1kg", category: "Designer Cakes", isVeg: true, isEggless: true, isBestseller: true, badge: "Custom", image: "https://images.unsplash.com/photo-1535141192574-5d4897c12636?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "2-Tier Floral Wedding Cake", desc: "Elegant two-tier cake decorated with edible sugar flowers.", price: 3500, weight: "2kg", category: "Designer Cakes", isVeg: true, isEggless: true, isBestseller: false, badge: "Premium", image: "https://images.unsplash.com/photo-1535254973040-607b474cb50d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Pinata Smash Cake", desc: "Chocolate shell filled with gems, chocolates and a mini cake inside.", price: 1200, weight: "750g", category: "Designer Cakes", isVeg: true, isEggless: true, isBestseller: true, badge: "Trending", image: "https://images.unsplash.com/photo-1622896784083-cc051313dbab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+
+  // Anniversary Cakes
+  { name: "Red Velvet Heart Cake", desc: "Heart shaped red velvet sponge with layers of authentic cream cheese frosting.", price: 1050, weight: "500g", category: "Anniversary Cakes", isVeg: true, isEggless: false, isBestseller: true, badge: "Bestseller", image: "https://images.unsplash.com/photo-1616541823729-00fe0aacd32c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Rosette Buttercream Cake", desc: "Beautiful pink rosette piped buttercream over a strawberry cake.", price: 900, weight: "500g", category: "Anniversary Cakes", isVeg: true, isEggless: true, isBestseller: false, badge: null, image: "https://images.unsplash.com/photo-1562777717-b6aff34563a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Couple Silhouette Cake", desc: "Romantic cake with couple silhouette topper and golden flakes.", price: 1100, weight: "500g", category: "Anniversary Cakes", isVeg: true, isEggless: true, isBestseller: false, badge: "New", image: "https://images.unsplash.com/photo-1519869325930-281384150729?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+
+  // Dry Cakes & Tea Cakes
+  { name: "Banana Walnut Cake", desc: "Classic homestyle banana bread loaded with walnuts.", price: 350, weight: "300g", category: "Dry Cakes & Tea Cakes", isVeg: true, isEggless: false, isBestseller: true, badge: "Healthy", image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
+  { name: "Marble Teacake", desc: "Vanilla and chocolate swirled butter sponge cake.", price: 300, weight: "300g", category: "Dry Cakes & Tea Cakes", isVeg: true, isEggless: true, isBestseller: false, badge: null, image: "https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
 
   // Pastries & Cupcakes
   { name: "Chocolate Hazelnut Tart", desc: "Crispy tart shell filled with gooey chocolate hazelnut ganache.", price: 180, weight: "1 Piece", category: "Pastries & Cupcakes", isVeg: true, isEggless: true, isBestseller: true, badge: "New", image: "https://images.unsplash.com/photo-1514517521153-1be72277b32f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
   { name: "Blueberry Cheesecake Slice", desc: "New York style baked cheesecake topped with homemade blueberry compote.", price: 220, weight: "1 Piece", category: "Pastries & Cupcakes", isVeg: true, isEggless: false, isBestseller: true, badge: "Bestseller", image: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Classic Vanilla Cupcake", desc: "Soft vanilla sponge topped with a swirl of rich buttercream frosting.", price: 90, weight: "1 Piece", category: "Pastries & Cupcakes", isVeg: true, isEggless: true, isBestseller: false, badge: null, image: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  
-  // Cookies & Biscuits
-  { name: "Chunky Chocolate Chip Cookie", desc: "Soft, chewy, and loaded with dark chocolate chunks.", price: 80, weight: "1 Piece", category: "Cookies & Biscuits", isVeg: true, isEggless: true, isBestseller: true, badge: "Must Try", image: "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Almond Biscotti", desc: "Twice-baked crunchy Italian almond biscuits, perfect with coffee.", price: 250, weight: "200g", category: "Cookies & Biscuits", isVeg: true, isEggless: true, isBestseller: false, badge: null, image: "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  
-  // Savoury Bakes
-  { name: "Butter Croissant", desc: "Flaky, buttery, and authentic French croissant baked fresh every morning.", price: 150, weight: "1 Piece", category: "Savoury Bakes", isVeg: true, isEggless: false, isBestseller: true, badge: "Bestseller", image: "https://images.unsplash.com/photo-1509365465985-25d11c17e812?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Cheese & Jalapeno Bagel", desc: "Chewy bagel topped with melted cheddar cheese and spicy jalapenos.", price: 140, weight: "1 Piece", category: "Savoury Bakes", isVeg: true, isEggless: true, isBestseller: false, badge: "Spicy", image: "https://images.unsplash.com/photo-1585675100414-22cb7f68c3a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" },
-  { name: "Spinach & Feta Quiche", desc: "Savoury shortcrust pastry filled with a rich egg custard, spinach, and feta.", price: 190, weight: "1 Piece", category: "Savoury Bakes", isVeg: true, isEggless: false, isBestseller: false, badge: null, image: "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
+  { name: "Red Velvet Cupcake", desc: "Soft red velvet sponge topped with cream cheese frosting.", price: 100, weight: "1 Piece", category: "Pastries & Cupcakes", isVeg: true, isEggless: true, isBestseller: false, badge: null, image: "https://images.unsplash.com/photo-1486427944299-d1955d23e34d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" }
 ];
 
 async function main() {
@@ -41,7 +41,7 @@ async function main() {
   await prisma.product.deleteMany({});
   await prisma.category.deleteMany({});
 
-  console.log("Seeding authentic bakery menu...");
+  console.log("Seeding all types of cakes...");
 
   // Insert Categories
   const catMap = {};
@@ -70,7 +70,7 @@ async function main() {
     });
   }
 
-  console.log(`Successfully seeded ${productsData.length} bakery items across ${categoriesData.length} categories!`);
+  console.log(`Successfully seeded ${productsData.length} cakes across ${categoriesData.length} categories!`);
 }
 
 main()

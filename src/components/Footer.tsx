@@ -31,9 +31,9 @@ export default function Footer() {
           <div>
             <h4 className="font-bold text-lg mb-6 text-yellow-400">Contact</h4>
             <ul className="space-y-4 text-gray-400">
-              <li><a href="tel:+919876543210" className="hover:text-white transition-colors">+91 98765 43210</a></li>
+              <li><a href="https://wa.me/918178708376" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">+91 81787 08376</a></li>
               <li><a href="mailto:hello@cravebakery.in" className="hover:text-white transition-colors">hello@cravebakery.in</a></li>
-              <li>Shop 12, Bakery Lane, New Delhi</li>
+              <li>Delhi Dwarka Sec 23 Pochanpur Village, 110077</li>
             </ul>
           </div>
 

@@ -20,7 +20,7 @@ export default function Reservation() {
                     <div className="w-12 h-12 bg-rose-800 rounded-2xl flex items-center justify-center text-xl shrink-0 border border-rose-700">📍</div>
                     <div>
                       <b className="block font-bold text-lg">Location</b>
-                      <span className="text-rose-200 text-sm">Shop 12, Bakery Lane, New Delhi</span>
+                      <span className="text-rose-200 text-sm">Delhi Dwarka Sec 23 Pochanpur Village, 110077</span>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -34,12 +34,12 @@ export default function Reservation() {
                     <div className="w-12 h-12 bg-rose-800 rounded-2xl flex items-center justify-center text-xl shrink-0 border border-rose-700">📞</div>
                     <div>
                       <b className="block font-bold text-lg">Phone</b>
-                      <span className="text-rose-200 text-sm">+91 98765 43210</span>
+                      <span className="text-rose-200 text-sm">+91 81787 08376</span>
                     </div>
                   </div>
                 </div>
                 
-                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 bg-white text-rose-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-rose-50 hover:-translate-y-1 transition-all shadow-xl w-full sm:w-auto">
+                <a href="https://wa.me/918178708376" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 bg-white text-rose-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-rose-50 hover:-translate-y-1 transition-all shadow-xl w-full sm:w-auto">
                   💬 WhatsApp Booking
                 </a>
               </div>
