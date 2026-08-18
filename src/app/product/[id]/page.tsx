@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { PrismaClient } from '@prisma/client';
 import Navbar from "@/components/Navbar";
 import ProductGallery from "@/components/ProductGallery";
