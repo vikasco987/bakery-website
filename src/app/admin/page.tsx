@@ -2,9 +2,10 @@ export const dynamic = 'force-dynamic';
 
 import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
+
 
 export default async function AdminDashboard() {
+  const prisma = new PrismaClient();
   const categoryCount = await prisma.category.count();
   const productCount = await prisma.product.count();
   const activeOffers = await prisma.offer.count({ where: { isActive: true } });

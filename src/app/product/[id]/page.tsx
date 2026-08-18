@@ -7,9 +7,10 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ProductInfo from "@/components/ProductInfo";
 import SimilarProducts from "@/components/SimilarProducts";
 
-const prisma = new PrismaClient();
+
 
 export default async function ProductDetail({ params }: { params: Promise<{ id: string }> }) {
+  const prisma = new PrismaClient();
   const resolvedParams = await params;
   
   const product = await prisma.product.findUnique({

@@ -1,9 +1,10 @@
 import { PrismaClient } from '@prisma/client';
 import ClientOffers from './ClientOffers';
 
-const prisma = new PrismaClient();
+
 
 export default async function Offers() {
+  const prisma = new PrismaClient();
   const dbOffers = await prisma.offer.findMany({
     where: { isActive: true },
   });
