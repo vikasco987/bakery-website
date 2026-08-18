@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function AboutUs() {
   return (
     <section id="about" className="py-24 bg-white">
@@ -6,11 +8,13 @@ export default function AboutUs() {
           
           {/* Photo Side */}
           <div className="relative">
-            <div className="aspect-[4/5] rounded-[2rem] overflow-hidden relative">
-              <img 
-                src="https://images.unsplash.com/photo-1556217698-eb0b8a3f8510?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+            <div className="aspect-[4/5] rounded-[2rem] overflow-hidden relative w-full">
+              <Image 
+                src="/images/bakery-kitchen.png" 
                 alt="Our Bakery Kitchen" 
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent"></div>
             </div>
