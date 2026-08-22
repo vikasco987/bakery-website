@@ -2,12 +2,11 @@ export const dynamic = 'force-dynamic';
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import AboutUs from "@/components/AboutUs";
+import ReviewsSection from "@/components/ReviewsSection";
 import Menu from "@/components/Menu";
 import Offers from "@/components/Offers";
 import CakeBuilder from "@/components/CakeBuilder";
 import Gallery from "@/components/Gallery";
-import Testimonials from "@/components/Testimonials";
 import Reservation from "@/components/Reservation";
 import Location from "@/components/Location";
 import InstagramStrip from "@/components/InstagramStrip";
@@ -18,31 +17,36 @@ export default function Home() {
     <main className="min-h-screen bg-slate-50">
       <Navbar />
       <Hero />
-      <AboutUs />
+      <ReviewsSection />
       
-      <section id="categories" className="py-24 bg-white relative">
-        <div className="absolute top-0 w-full h-px bg-gradient-to-r from-transparent via-pink-200 to-transparent"></div>
-        <div className="text-center mb-16 relative z-10">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <span className="w-6 h-1 bg-yellow-400 rounded-full"></span>
-            <span className="text-sm font-bold uppercase tracking-widest text-rose-600">Our Menu</span>
+      <section id="categories" className="py-24 bg-[#FDF7F4] relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 relative z-10 gap-6">
+            <div className="text-center md:text-left">
+              <div className="inline-flex items-center justify-center md:justify-start gap-2 mb-2 w-full">
+                <span className="text-xl text-[#E63968]">Our Special 🎂</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-black text-gray-900 tracking-tight">CAKE COLLECTION</h2>
+              <div className="flex justify-center md:justify-start mt-4">
+                <span className="w-12 h-1 bg-[#E63968] rounded-full"></span>
+              </div>
+            </div>
+            <div className="text-center md:text-right">
+              <a href="#categories" className="inline-flex items-center gap-2 border-2 border-gray-200 text-gray-700 px-6 py-2.5 rounded-full font-bold text-sm hover:border-[#E63968] hover:text-[#E63968] transition-colors">
+                VIEW ALL CAKES <span>→</span>
+              </a>
+            </div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Handcrafted <span className="text-pink-600">Perfection</span></h2>
+          <Menu />
         </div>
-        <Menu />
       </section>
 
       <CakeBuilder />
 
-      <section id="offers" className="py-24 bg-rose-50 overflow-hidden relative">
-        <div className="text-center mb-16 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">Special <span className="text-pink-600">Offers</span></h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg">Grab these limited-time deals before they're gone!</p>
-        </div>
+      <section id="offers" className="py-12 bg-[#FDF7F4] relative">
         <Offers />
       </section>
       
-      <Testimonials />
       <Gallery />
       <Reservation />
       
