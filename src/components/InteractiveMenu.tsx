@@ -4,7 +4,6 @@ import { useState, useMemo, useEffect } from 'react';
 import MenuItem from './MenuItem';
 
 export default function InteractiveMenu({ initialCategories }: { initialCategories: any[] }) {
-export default function InteractiveMenu({ initialCategories }: { initialCategories: any[] }) {
   const [view, setView] = useState<'categories' | 'products'>('categories');
   const [activeCategory, setActiveCategory] = useState(initialCategories[0]?.name || '');
   const [searchQuery, setSearchQuery] = useState('');
