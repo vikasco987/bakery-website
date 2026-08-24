@@ -1,55 +1,71 @@
 export default function Testimonials() {
   const reviews = [
     {
-      name: "Rohit Sharma",
-      type: "Regular Customer",
-      avatar: "https://i.pravatar.cc/150?u=rohit",
-      text: "The customized Truffle Cake was the highlight of our party! Extremely soft, perfectly sweet, and visually stunning. Highly recommend this bakery."
+      name: "Rahul Sharma",
+      review: "Absolutely the best Black Forest cake I've ever had. The delivery was right on time for my son's birthday. Highly recommended!",
+      rating: 5,
+      date: "August 2026"
     },
     {
-      name: "Priya Malhotra",
-      type: "Google Review",
-      avatar: "https://i.pravatar.cc/150?u=priya",
-      text: "Packaging was beautiful and delivery was right on time. The macarons taste exactly like the ones I had in Paris. Will definitely order again!"
+      name: "Priya Patel",
+      review: "We ordered the custom Truffle cake for our anniversary. The design was exactly what we asked for, and it tasted heavenly.",
+      rating: 5,
+      date: "July 2026"
     },
     {
-      name: "Aman Verma",
-      type: "Zomato Review",
-      avatar: "https://i.pravatar.cc/150?u=aman",
-      text: "Hosted my daughter's birthday here. The staff was incredibly cooperative, and the pastries were loved by everyone. A true gem in the city!"
+      name: "Amit Desai",
+      review: "Their fresh pastries and namkeen are a regular evening snack for us now. Always fresh, always crispy, and amazing quality.",
+      rating: 5,
+      date: "August 2026"
     }
   ];
 
   return (
-    <section id="reviews" className="py-24 bg-gray-900 text-white relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-rose-600/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-pink-600/10 rounded-full blur-3xl"></div>
-      
+    <section className="py-24 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-4">
-            <span className="w-6 h-1 bg-yellow-400 rounded-full"></span>
-            <span className="text-sm font-bold uppercase tracking-widest text-rose-400">Customer Love</span>
+          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">
+            Customer <span className="text-[#E63968]">Reviews</span>
+          </h2>
+          <div className="w-24 h-1 bg-[#E63968] mx-auto rounded-full opacity-50 mb-6"></div>
+          <div className="flex justify-center items-center gap-2">
+            <span className="text-[#E6C875] text-2xl">★</span>
+            <span className="text-[#E6C875] text-2xl">★</span>
+            <span className="text-[#E6C875] text-2xl">★</span>
+            <span className="text-[#E6C875] text-2xl">★</span>
+            <span className="text-[#E6C875] text-2xl">★</span>
+            <span className="text-gray-700 ml-2 font-bold">4.9/5 from 500+ happy customers</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4 tracking-tight">What They Say</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {reviews.map((review, idx) => (
-            <div key={idx} className="bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 hover:bg-gray-800 transition-colors duration-300">
-              <div className="text-yellow-400 text-lg mb-4 tracking-[0.2em]">★★★★★</div>
-              <p className="text-gray-300 leading-relaxed mb-8 italic">"{review.text}"</p>
-              <div className="flex items-center gap-4 mt-auto">
-                <img src={review.avatar} alt={review.name} className="w-12 h-12 rounded-full border-2 border-rose-500 object-cover" />
-                <div>
-                  <b className="block font-bold text-white font-serif">{review.name}</b>
-                  <span className="text-xs text-gray-400">{review.type}</span>
+          {reviews.map((review, index) => (
+            <div key={index} className="bg-[#FDF7F4] p-8 rounded-2xl border border-rose-50 shadow-sm relative">
+              <div className="text-6xl text-[#E63968] absolute top-4 left-6 opacity-20 font-serif">"</div>
+              
+              <div className="relative z-10">
+                <div className="flex text-[#E6C875] mb-4">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <span key={i}>★</span>
+                  ))}
+                </div>
+                
+                <p className="text-gray-600 italic mb-6 leading-relaxed">
+                  "{review.review}"
+                </p>
+                
+                <div className="flex justify-between items-end border-t border-rose-100 pt-4">
+                  <div>
+                    <h4 className="text-gray-900 font-bold">{review.name}</h4>
+                  </div>
+                  <span className="text-xs text-gray-500">{review.date}</span>
                 </div>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

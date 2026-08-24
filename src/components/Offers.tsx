@@ -4,10 +4,15 @@ import ClientOffers from './ClientOffers';
 
 
 export default async function Offers() {
-  const prisma = new PrismaClient();
-  const dbOffers = await prisma.offer.findMany({
-    where: { isActive: true },
-  });
+  let dbOffers = [];
+  try {
+    const prisma = new PrismaClient();
+    dbOffers = await prisma.offer.findMany({
+      where: { isActive: true },
+    });
+  } catch (error) {
+    console.error("Database connection failed, using fallback offers.");
+  }
 
   // If no DB offers, fallback to beautiful placeholder offers
   const offers = dbOffers.length > 0 ? dbOffers : [
