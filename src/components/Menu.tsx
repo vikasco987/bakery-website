@@ -4,7 +4,7 @@ import InteractiveMenu from './InteractiveMenu';
 
 
 export default async function Menu() {
-  let categories = [];
+  let categories: any[] = [];
   try {
     const prisma = new PrismaClient();
     categories = await prisma.category.findMany({

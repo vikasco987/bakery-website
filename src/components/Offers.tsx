@@ -4,7 +4,7 @@ import ClientOffers from './ClientOffers';
 
 
 export default async function Offers() {
-  let dbOffers = [];
+  let dbOffers: any[] = [];
   try {
     const prisma = new PrismaClient();
     dbOffers = await prisma.offer.findMany({
