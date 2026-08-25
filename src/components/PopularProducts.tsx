@@ -47,7 +47,7 @@ export default function PopularProducts() {
               Freshly baked every morning with premium ingredients. Our signature cakes are perfect for every celebration.
             </p>
           </div>
-          <a href="https://wa.me/918178708376?text=Hello%20Alzaa%20Food%20Corner,%20I%20want%20to%20see%20your%20full%20cake%20menu." target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex border-2 border-[#E63968] text-[#E63968] hover:bg-[#E63968] hover:text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-colors items-center gap-2">
+          <a href="https://wa.me/918178708376?text=Hello%20BnB%20Bakery,%20I%20want%20to%20see%20your%20full%20cake%20menu." target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex border-2 border-[#E63968] text-[#E63968] hover:bg-[#E63968] hover:text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-colors items-center gap-2">
             VIEW ALL CAKES <span>→</span>
           </a>
         </div>
@@ -75,7 +75,7 @@ export default function PopularProducts() {
                 <p className="text-gray-500 text-sm mb-6 flex-grow leading-relaxed">{product.description}</p>
                 
                 <a 
-                  href={`https://wa.me/918178708376?text=Hello%20Alzaa%20Food%20Corner,%20I%20want%20to%20order%20the%20${encodeURIComponent(product.name)}`}
+                  href={`https://wa.me/918178708376?text=Hello%20BnB%20Bakery,%20I%20want%20to%20order%20the%20${encodeURIComponent(product.name)}`}
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="w-full bg-[#FDF7F4] text-[#E63968] border border-[#E63968]/20 py-3 rounded-xl font-bold text-sm tracking-wide text-center hover:bg-[#E63968] hover:text-white transition-colors"
@@ -88,7 +88,7 @@ export default function PopularProducts() {
         </div>
 
         <div className="mt-12 text-center md:hidden">
-          <a href="https://wa.me/918178708376?text=Hello%20Alzaa%20Food%20Corner,%20I%20want%20to%20see%20your%20full%20cake%20menu." target="_blank" rel="noopener noreferrer" className="inline-flex border-2 border-[#E63968] text-[#E63968] hover:bg-[#E63968] hover:text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-colors items-center gap-2">
+          <a href="https://wa.me/918178708376?text=Hello%20BnB%20Bakery,%20I%20want%20to%20see%20your%20full%20cake%20menu." target="_blank" rel="noopener noreferrer" className="inline-flex border-2 border-[#E63968] text-[#E63968] hover:bg-[#E63968] hover:text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-colors items-center gap-2">
             VIEW ALL CAKES <span>→</span>
           </a>
         </div>

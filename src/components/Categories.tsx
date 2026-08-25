@@ -229,7 +229,8 @@ export default function Categories() {
 
         .cake-img-wrap {
           position: relative;
-          height: 230px;
+          aspect-ratio: 1 / 1;
+          width: 100%;
           overflow: hidden;
         }
 
@@ -237,6 +238,7 @@ export default function Categories() {
           width: 100%;
           height: 100%;
           object-fit: cover;
+          object-position: center;
           display: block;
           transition: transform .5s ease;
         }
@@ -300,7 +302,6 @@ export default function Categories() {
           .collection-section { padding: 60px 5vw 70px; }
           .collection-header { flex-direction: column; align-items: flex-start; }
           .cake-grid { grid-template-columns: repeat(2, 1fr); gap: 18px; }
-          .cake-img-wrap { height: 190px; }
           .drift { display: none; }
         }
 

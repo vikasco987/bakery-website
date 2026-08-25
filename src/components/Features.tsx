@@ -33,7 +33,7 @@ export default function Features() {
         
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">
-            Why Choose <span className="text-[#E63968]">Alzaa?</span>
+            Why Choose <span className="text-[#E63968]">BnB Bakery?</span>
           </h2>
           <div className="w-24 h-1 bg-[#E63968] mx-auto rounded-full opacity-50"></div>
         </div>
