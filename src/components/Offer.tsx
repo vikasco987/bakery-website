@@ -38,7 +38,7 @@ export default function Offer() {
                 <span>Now</span>
                 <span>Only</span>
               </div>
-              <span className="text-3xl md:text-4xl tracking-tight">₹650</span>
+              <span className="text-3xl md:text-4xl tracking-tight">₹849</span>
             </button>
           </div>
 

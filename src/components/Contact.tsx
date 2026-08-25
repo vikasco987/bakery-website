@@ -13,7 +13,7 @@ export default function Contact() {
             <div className="w-24 h-1 bg-[#E63968] rounded-full opacity-50 mb-8"></div>
             
             <p className="text-gray-600 text-lg mb-12">
-              We'd love to see you in person! Drop by our bakery in Nadiad for fresh treats, or order directly via WhatsApp for quick delivery.
+              We'd love to see you in person! Drop by our bakery in Dwarka for fresh treats, or order directly via WhatsApp for quick delivery.
             </p>
 
             <div className="space-y-8">
