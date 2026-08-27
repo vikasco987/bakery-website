@@ -85,3 +85,8 @@ model AdminUser {
   email    String @unique
   password String
 }
+
+model StoreSettings {
+  id                    String  @id @default(auto()) @map("_id") @db.ObjectId
+  isWhatsAppFormEnabled Boolean @default(false)
+}

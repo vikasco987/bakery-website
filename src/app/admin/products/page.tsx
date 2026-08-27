@@ -1,10 +1,27 @@
-export default function ProductsPage() {
+import { PrismaClient } from '@prisma/client';
+import InventoryClient from './InventoryClient';
+
+export const dynamic = 'force-dynamic';
+
+const prisma = new PrismaClient();
+
+export default async function ProductsPage() {
+  const categories = await prisma.category.findMany({
+    orderBy: { createdAt: 'desc' }
+  });
+  
+  const products = await prisma.product.findMany({
+    include: { category: true },
+    orderBy: { createdAt: 'desc' }
+  });
+
   return (
     <div>
       <h1 className="text-3xl font-bold mb-6 text-slate-800">Products & Categories</h1>
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-        <p className="text-slate-600">The form to manage Cakes, Categories, Pricing, and Weights will be built here.</p>
-      </div>
+      <InventoryClient 
+        initialCategories={JSON.parse(JSON.stringify(categories))}
+        initialProducts={JSON.parse(JSON.stringify(products))}
+      />
     </div>
   );
 }

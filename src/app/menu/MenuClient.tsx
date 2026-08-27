@@ -28,15 +28,15 @@ export default function MenuClient({ categories, products }: { categories: Categ
 
   return (
     <div>
-      {/* Category Grid with Images */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
+      {/* Category Horizontal Scroll with Images */}
+      <div className="flex overflow-x-auto gap-4 mb-12 pb-4 scrollbar-hide snap-x">
         {categories.map((cat) => {
           const isActive = activeCategory === cat.id;
           return (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`flex flex-col items-center p-3 rounded-2xl transition-all duration-300 border-2 bg-white shadow-sm ${
+              className={`flex-shrink-0 w-[110px] md:w-[130px] flex flex-col items-center p-3 rounded-2xl transition-all duration-300 border-2 bg-white shadow-sm snap-start ${
                 isActive
                   ? "border-[#e0356b] shadow-md transform -translate-y-1"
                   : "border-transparent hover:border-[#f7c9d8] hover:shadow-md"
@@ -49,7 +49,7 @@ export default function MenuClient({ categories, products }: { categories: Categ
                   <div className="w-full h-full bg-pink-100 flex items-center justify-center text-xl">🎂</div>
                 )}
               </div>
-              <span className={`text-sm font-bold text-center ${isActive ? "text-[#e0356b]" : "text-gray-700"}`}>
+              <span className={`text-xs md:text-sm font-bold text-center leading-tight ${isActive ? "text-[#e0356b]" : "text-gray-700"}`}>
                 {cat.name}
               </span>
             </button>

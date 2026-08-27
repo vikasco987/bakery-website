@@ -9,25 +9,34 @@ export default function CartDrawer() {
   const [formData, setFormData] = useState({ name: "", phone: "", address: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [orderSuccess, setOrderSuccess] = useState<string | null>(null);
+  const [isWhatsAppFormEnabled, setIsWhatsAppFormEnabled] = useState(false);
+  const [checkoutTarget, setCheckoutTarget] = useState<"whatsapp" | "website" | null>(null);
+
+  React.useEffect(() => {
+    fetch('/api/settings').then(res => res.json()).then(data => {
+      if (data.settings) setIsWhatsAppFormEnabled(data.settings.isWhatsAppFormEnabled);
+    }).catch(console.error);
+  }, []);
 
   if (!isCartOpen) return null;
 
-  const handleWhatsAppCheckout = async () => {
-    // Generate order text
+  const executeWhatsAppCheckout = async () => {
     let message = "Hello, I want to place an order:\n\n";
+    if (checkoutTarget === "whatsapp" && isWhatsAppFormEnabled) {
+      message += `Name: ${formData.name}\nPhone: ${formData.phone}\n\n`;
+    }
     cart.forEach(item => {
       message += `${item.name} × ${item.quantity} — ₹${item.price * item.quantity}\n`;
     });
     message += `\n*Total: ₹${totalAmount}*\n\n`;
     
-    // Attempt to save to DB as WhatsApp order first
     try {
       await fetch('/api/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          customerName: "WhatsApp User",
-          phone: "Pending",
+          customerName: formData.name || "WhatsApp User",
+          phone: formData.phone || "Pending",
           address: "Pending",
           items: cart,
           totalAmount,
@@ -35,19 +44,32 @@ export default function CartDrawer() {
         })
       });
     } catch (e) {
-      console.error("Failed to save whatsapp order attempt", e);
+      console.error(e);
     }
 
-    // Redirect to WhatsApp
-    const whatsappNumber = "919876543210"; // Placeholder, should come from config ideally
+    const whatsappNumber = "919876543210"; 
     const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(url, "_blank");
     clearCart();
     setIsCartOpen(false);
   };
 
-  const handleWebsiteCheckout = async (e: React.FormEvent) => {
+  const handleWhatsAppClick = () => {
+    if (isWhatsAppFormEnabled) {
+      setCheckoutTarget("whatsapp");
+      setCheckoutMode("form");
+    } else {
+      executeWhatsAppCheckout();
+    }
+  };
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (checkoutTarget === "whatsapp") {
+      await executeWhatsAppCheckout();
+      return;
+    }
+
     setIsSubmitting(true);
     try {
       const res = await fetch('/api/orders', {
@@ -119,7 +141,8 @@ export default function CartDrawer() {
               ))}
             </div>
           ) : (
-            <form onSubmit={handleWebsiteCheckout} className="space-y-4 text-gray-800">
+            <form onSubmit={handleFormSubmit} className="space-y-4 text-gray-800">
+
               <div>
                 <label className="block text-sm font-bold mb-1">Name</label>
                 <input required type="text" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full p-2 border rounded-lg" placeholder="Your Name" />
@@ -128,10 +151,12 @@ export default function CartDrawer() {
                 <label className="block text-sm font-bold mb-1">Phone</label>
                 <input required type="tel" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} className="w-full p-2 border rounded-lg" placeholder="Your Phone Number" />
               </div>
-              <div>
-                <label className="block text-sm font-bold mb-1">Address</label>
-                <textarea required value={formData.address} onChange={e => setFormData({...formData, address: e.target.value})} className="w-full p-2 border rounded-lg" placeholder="Delivery Address" rows={3}></textarea>
-              </div>
+              {checkoutTarget === "website" && (
+                <div>
+                  <label className="block text-sm font-bold mb-1">Address</label>
+                  <textarea required value={formData.address} onChange={e => setFormData({...formData, address: e.target.value})} className="w-full p-2 border rounded-lg" placeholder="Delivery Address" rows={3}></textarea>
+                </div>
+              )}
               <div className="pt-4 flex space-x-3">
                 <button type="button" onClick={() => setCheckoutMode("cart")} className="flex-1 px-4 py-2 bg-gray-200 text-gray-800 rounded-lg font-bold hover:bg-gray-300">Back</button>
                 <button type="submit" disabled={isSubmitting} className="flex-1 px-4 py-2 bg-pink-600 text-white rounded-lg font-bold hover:bg-pink-700">
@@ -151,13 +176,13 @@ export default function CartDrawer() {
             </div>
             <div className="space-y-3">
               <button 
-                onClick={handleWhatsAppCheckout}
+                onClick={handleWhatsAppClick}
                 className="w-full py-3 bg-green-500 text-white rounded-xl font-bold hover:bg-green-600 flex items-center justify-center gap-2"
               >
                 Order via WhatsApp
               </button>
               <button 
-                onClick={() => setCheckoutMode("form")}
+                onClick={() => { setCheckoutTarget("website"); setCheckoutMode("form"); }}
                 className="w-full py-3 bg-pink-600 text-white rounded-xl font-bold hover:bg-pink-700"
               >
                 Order on Website
