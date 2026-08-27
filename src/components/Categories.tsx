@@ -335,7 +335,7 @@ export default function Categories() {
             <p className="eyebrow">Our Special 🎂</p>
             <h2>Cake Collection</h2>
           </div>
-          <Link href="#menu" className="view-all">VIEW ALL CAKES <span className="arrow">→</span></Link>
+          <Link href="/menu" className="view-all">VIEW ALL CAKES <span className="arrow">→</span></Link>
         </div>
 
         <div className="divider">

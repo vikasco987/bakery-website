@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function PopularProducts() {
   const products = [
     {
@@ -47,9 +49,9 @@ export default function PopularProducts() {
               Freshly baked every morning with premium ingredients. Our signature cakes are perfect for every celebration.
             </p>
           </div>
-          <a href="https://wa.me/918178708376?text=Hello%20BnB%20Bakery,%20I%20want%20to%20see%20your%20full%20cake%20menu." target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex border-2 border-[#E63968] text-[#E63968] hover:bg-[#E63968] hover:text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-colors items-center gap-2">
+          <Link href="/menu" className="hidden md:inline-flex border-2 border-[#E63968] text-[#E63968] hover:bg-[#E63968] hover:text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-colors items-center gap-2">
             VIEW ALL CAKES <span>→</span>
-          </a>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -88,9 +90,9 @@ export default function PopularProducts() {
         </div>
 
         <div className="mt-12 text-center md:hidden">
-          <a href="https://wa.me/918178708376?text=Hello%20BnB%20Bakery,%20I%20want%20to%20see%20your%20full%20cake%20menu." target="_blank" rel="noopener noreferrer" className="inline-flex border-2 border-[#E63968] text-[#E63968] hover:bg-[#E63968] hover:text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-colors items-center gap-2">
+          <Link href="/menu" className="inline-flex border-2 border-[#E63968] text-[#E63968] hover:bg-[#E63968] hover:text-white px-6 py-2.5 rounded-full font-bold text-sm tracking-wide transition-colors items-center gap-2">
             VIEW ALL CAKES <span>→</span>
-          </a>
+          </Link>
         </div>
 
       </div>

@@ -1,10 +1,19 @@
-export default function OrdersPage() {
+import { PrismaClient } from '@prisma/client';
+import AdminOrdersClient from './AdminOrdersClient';
+
+export const dynamic = 'force-dynamic';
+
+const prisma = new PrismaClient();
+
+export default async function AdminOrdersPage() {
+  const orders = await prisma.order.findMany({
+    orderBy: { createdAt: 'desc' }
+  });
+
   return (
     <div>
       <h1 className="text-3xl font-bold mb-6 text-slate-800">Customer Orders</h1>
-      <div className="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-        <p className="text-slate-600">A table to view and manage pending WhatsApp orders will be built here.</p>
-      </div>
+      <AdminOrdersClient initialOrders={JSON.parse(JSON.stringify(orders))} />
     </div>
   );
 }
