@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 export async function GET() {
   try {
     const categories = await prisma.category.findMany({
-      orderBy: { createdAt: 'desc' }
+      orderBy: { id: 'desc' }
     });
     return NextResponse.json({ categories }, { status: 200 });
   } catch (error) {

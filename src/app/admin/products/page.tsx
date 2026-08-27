@@ -7,12 +7,12 @@ const prisma = new PrismaClient();
 
 export default async function ProductsPage() {
   const categories = await prisma.category.findMany({
-    orderBy: { createdAt: 'desc' }
+    orderBy: { id: 'desc' }
   });
   
   const products = await prisma.product.findMany({
     include: { category: true },
-    orderBy: { createdAt: 'desc' }
+    orderBy: { id: 'desc' }
   });
 
   return (
