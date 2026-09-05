@@ -27,6 +27,7 @@ export async function POST(request: Request) {
         name: body.name,
         description: body.description || "",
         price: parseFloat(body.price),
+        weight: body.weight || "",
         image: body.image || null,
         isVeg: body.isVeg === undefined ? true : Boolean(body.isVeg),
         categoryId: body.categoryId,
